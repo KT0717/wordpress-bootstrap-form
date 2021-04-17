@@ -1,13 +1,14 @@
 ## wordpress-bootstrap-form
-ローカル環境にてWordpressとBootstrapを使ったお申し込みフォームの作成
+ローカル環境（Local by Flywheel）にて Wordpress と Bootstrap を使ったお申し込みフォームの作成
 
 ### 概要・ねらい
+* Local by Flywheel を使って気軽に Wordpress の開発を行う
 * お申し込みフォームのテンプレート作成
-* デザインはBootstrapを使用
+* デザインは Bootstrap を使用
 * 入力された内容をデータベースに格納
+* 管理者、申込者にメールを自動送信
 
-## 環境
-### Local by Flywheel
+## 環境（Local by Flywheel）
 
 ローカルでWordpressを開発するために Local by Flywheel を使用
 
@@ -39,7 +40,7 @@ Local by Flywheel で設定した Username と Password でログイン
 （プロジェクト名 test とすると）
 
 cd Local\ Sites/test/app/public/wp-content/themes  
-git clone https://github.com/your-account-name/wordpress-bootstrap-form.git  
+git clone https://github.com/KT0717/wordpress-bootstrap-form.git  
 cd wordpress-bootstrap-form  
 （テーマに必要なファイルが展開されています）  
 npm i  
