@@ -59,7 +59,7 @@ complete（完了ページ:親ページに contact）
 
 #### データベースのインポート
 
-下記データベース設定ファイルをダウンロードしてを Local by Flywheel の [DATABASE] [OPEN ADMINER]を開いてインポートしてください
+下記データベース設定ファイルをダウンロードしてs Local by Flywheel の [DATABASE] [OPEN ADMINER]を開いてインポートしてください
 
 https://github.com/KT0717/wordpress-bootstrap-form/blob/master/wp_test_form.sql.gz
 
