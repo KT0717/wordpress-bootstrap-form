@@ -10,7 +10,7 @@
 
 ## 環境（Local by Flywheel）
 
-ローカルでWordpressを開発するために Local by Flywheel を使用
+ローカルで Wordpress を開発するために Local by Flywheel を使用
 
 [公式サイト](https://localwp.com/)からダウンロード、インストールする
 
