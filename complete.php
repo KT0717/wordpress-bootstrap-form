@@ -99,7 +99,7 @@ if (isset($_SESSION['your-submit'])) {
           <p class="small text-secondary mb-2">自動返信にて登録内容が返信されます。</p>
           <p class="small text-secondary">メールが届かない場合は、迷惑メールフォルダやゴミ箱に自動的に振り分けられている可能性がありますので、一度ご確認頂きますようお願い致します。</p>
         </div>
-        <a href="<?php echo get_permalink(get_page_by_title('contact')); ?>" class="btn btn-link btn-sm p-0">トップへ戻る</a>
+        <a href="<?php echo get_permalink(get_page_by_title('front-page')); ?>" class="btn btn-link btn-sm p-0">トップへ戻る</a>
     </div>
   </div>
 </div>
