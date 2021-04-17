@@ -57,5 +57,11 @@ complete（完了ページ:親ページに contact）
 
 各ページ、「テンプレート」「親ページ」の設定を忘れずに行ってください
 
+#### データベースのインポート
+
+下記データベース設定ファイルをダウンロードしてを Local by Flywheel の [DATABASE] [OPEN ADMINER]を開いてインポートしてください
+
+https://github.com/KT0717/wordpress-bootstrap-form/blob/master/wp_test_form.sql.gz
+
 <!-- wp db export test.sql --socket="/Users/kouichi/Library/Application Support/Local/run/ajiFsEYyd/mysql/mysqld.sock" -->
 
