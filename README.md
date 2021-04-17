@@ -40,7 +40,7 @@ Local by Flywheel で設定した Username と Password でログイン
 （プロジェクト名 test とすると）
 
 cd Local\ Sites/test/app/public/wp-content/themes  
-git clone https://github.com/KT0717/wordpress-bootstrap-form.git  
+git clone git@github.com:KT0717/wordpress-bootstrap-form.git   
 cd wordpress-bootstrap-form  
 （テーマに必要なファイルが展開されています）  
 npm i  
