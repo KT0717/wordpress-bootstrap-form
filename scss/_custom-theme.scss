@@ -1,0 +1,12 @@
+$theme-colors: ("indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan);
+$theme-colors: map-merge(('twitter': #53A7E8,
+    'facebook': #4064AD,
+    'tiktok': #F6305D), $theme-colors);
+$yiq-contrasted-threshold: 160;
