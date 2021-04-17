@@ -1,47 +1,60 @@
 ## wordpress-bootstrap-form
-ローカル環境にてWordpressとBootstrapを使った申し込みフォームの作成
+ローカル環境にてWordpressとBootstrapを使ったお申し込みフォームの作成
 
 ### 概要・ねらい
-* Wordpressで使えるお申し込みフォームのテンプレート作成
+* お申し込みフォームのテンプレート作成
 * デザインはBootstrapを使用
-* 入力された内容をデータベースに格納（CSVで出力するため）
-* 入力された内容を自分宛のメールアドレスに送信（WP Mail SMTP使用）
+* 入力された内容をデータベースに格納
 
 ## 環境
-### [Local by Flywheel](https://localwp.com/)
+### Local by Flywheel
 
 ローカルでWordpressを開発するために Local by Flywheel を使用
 
-設定は下記画像とする。それ以外はデフォルト
+[公式サイト](https://localwp.com/)からダウンロード、インストールする
 
-<img width="1440" alt="" src="https://user-images.githubusercontent.com/75486352/114484307-ee05d180-9c44-11eb-9222-851a0c187ddd.png">
+プロジェクト名は test とする
 
-wp db export test.sql --socket="/Users/kouichi/Library/Application Support/Local/run/ajiFsEYyd/mysql/mysqld.sock"
+#### 今回の Local by Flywheel の設定
+PHP Version 7.4.1  
+Apache 2.4.42  
+MySQL 5.7.28  
 
-### [WP Mail SMTP by WPForms](https://ja.wordpress.org/plugins/wp-mail-smtp/)
+Wordpress Username: test  
+Wordpress Password: root  
+Wordpress Email: dev-email@flywheel.local (デフォルトのまま)
 
-SMTPサーバーを使ってメールを送信できるように WP Mail SMTP のプラグインを使用  
-（Wordpressのダッシュボードにて該当のプラグインを追加してください）
+Site Domaine を test.local から test.wp に変更（なんとなくです）
 
-設定は下記を参考（Gmail使用）  
-https://tcd-theme.com/2019/03/wp-mail-smtp.html
+Local by Flywheel の [OPEN SITE] をクリックすると Wordpress のログイン画面が表示されます
 
-WP Mail SMTP
+http://test.local/wp-admin/
 
-![s](https://user-images.githubusercontent.com/75486352/114486430-dd575a80-9c48-11eb-9b6e-2116756fc0fd.png)
+#### Wordpress の設定
+Local by Flywheel で設定した Username と Password でログイン  
+[設定]で 言語:日本語 タイムゾーン:東京
 
-## 起動
-```
-cd Local\ Sites/test/app/public/wp-content/themes
-git clone git@github.com:hp900ps/wordpress-contact-form.git
-cd wordpress-contact-form
-npm i
-gulp
-```
+#### フォームのテンプレートを Wordpress のテーマに設定する
 
-## 備考
+（プロジェクト名 test とすると）
 
-お申し込みフォームは固定ページで作成しています  
-各ページの「テンプレート」「親ページ」の設定を忘れずに行ってください
+cd Local\ Sites/test/app/public/wp-content/themes  
+git clone https://github.com/your-account-name/wordpress-bootstrap-form.git  
+cd wordpress-bootstrap-form  
+（テーマに必要なファイルが展開されています）  
+npm i  
+（SASS のコンパイルのために gulp を使用しているのでインストール)  
 
-![s2](https://user-images.githubusercontent.com/75486352/114487143-0c220080-9c4a-11eb-92e5-e9e9f00586d4.png)
+wordpress のダッシュボード（http://test.local/wp-admin/）にて、  
+[外観][テーマ変更]で[wp]というテーマを有効にする
+
+お申し込みフォームは固定ページで作成しています
+
+contact（フォームページ）  
+comfirm（確認ページ:親ページに contact）  
+complete（完了ページ:親ページに contact）
+
+各ページ、「テンプレート」「親ページ」の設定を忘れずに行ってください
+
+<!-- wp db export test.sql --socket="/Users/kouichi/Library/Application Support/Local/run/ajiFsEYyd/mysql/mysqld.sock" -->
+
