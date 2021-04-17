@@ -46,7 +46,7 @@ cd wordpress-bootstrap-form
 npm i  
 （SASS のコンパイルのために gulp を使用しているのでインストール)  
 
-wordpress のダッシュボード（http://test.local/wp-admin/）にて、  
+wordpress のダッシュボード（[http://test.local/wp-admin/](http://test.local/wp-admin/)）にて、  
 [外観][テーマ変更]で[wp]というテーマを有効にする
 
 お申し込みフォームは固定ページで作成しています
@@ -62,6 +62,12 @@ complete（完了ページ:親ページに contact）
 下記データベース設定ファイルをダウンロードしてを Local by Flywheel の [DATABASE] [OPEN ADMINER]を開いてインポートしてください
 
 https://github.com/KT0717/wordpress-bootstrap-form/blob/master/wp_test_form.sql.gz
+
+#### 完成形
+
+http://test.local/contact/
+
+![form](https://user-images.githubusercontent.com/82574495/115107707-926e7780-9fa7-11eb-8144-5211f16e7bbe.png)
 
 <!-- wp db export test.sql --socket="/Users/kouichi/Library/Application Support/Local/run/ajiFsEYyd/mysql/mysqld.sock" -->
 
