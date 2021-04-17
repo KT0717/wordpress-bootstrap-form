@@ -79,19 +79,9 @@ session_start();
             <textarea name="your-level" class="form-control" id="your-level"></textarea>
             <small class="example-text form-text text-muted">例）国体３位、経験年数２０年以上</small>
           </div>
+          <hr>
           <div class="px-1 mb-4">
-            <div class="form-check text-center">
-              <input class="form-check-input" type="checkbox" id="invalidCheck" style="margin-top: .4rem;" required>
-              <label class="form-check-label small" for="invalidCheck">
-                <span>上記の情報を送信することに同意します</span>
-              </label>
-              <div class="invalid-feedback">
-                <span>内容を確認の上、チェックをしてください</span>
-              </div>
-            </div>
-          </div>
-          <div class="px-1 mb-4">
-            <button name="your-submit" class="btn btn-primary w-100" type="submit">送信</button>
+            <button name="your-submit" class="btn btn-outline-primary w-100" type="submit">確認画面へ</button>
           </div>
         </form>
       </div>

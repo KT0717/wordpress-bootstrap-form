@@ -53,9 +53,22 @@ if (isset($_POST['your-submit'])) {
             <?php $message = htmlspecialchars($_SESSION['your-level']); $message = str_replace(" ", "&ensp;", $message); $message = str_replace("　", "&emsp;", $message); echo nl2br($message); ?>
           </p>
         </div>
+        <div class="px-1 mb-4">
+          <div class="form-check text-center">
+            <input class="form-check-input" type="checkbox" id="invalidCheck" style="margin-top: .4rem;" required>
+            <label class="form-check-label small" for="invalidCheck">
+              <span>上記の情報を送信することに同意します</span>
+            </label>
+            <div class="invalid-feedback">
+              <span>内容を確認の上、チェックをしてください</span>
+            </div>
+          </div>
+        </div>
         <div class="d-flex justify-content-center">
-          <button class="btn btn-outline-primary btn-sm w-100 mr-2" type="button" onclick="location.href='<?php echo get_permalink(get_page_by_title('contact')); ?>'">修正</button>
-          <button class="btn btn-primary btn-sm w-100" type="button" onclick="location.href='<?php echo get_permalink(get_page_by_title('complete')); ?>'">送信</button>
+          <button class="btn btn-outline-primary btn-sm w-100 mr-2" type="button"
+            onclick="location.href='<?php echo get_permalink(get_page_by_title('contact')); ?>'">修正</button>
+          <button class="btn btn-primary btn-sm w-100" type="button"
+            onclick="location.href='<?php echo get_permalink(get_page_by_title('complete')); ?>'">送信</button>
         </div>
       </div>
     </div>

@@ -41,9 +41,10 @@ if (isset($_SESSION['your-submit'])) {
     $dbh = null;
 
     // メールセクションここから
+    // 管理者へ送信ここから
     $to = 'ffffff@gmail.com';
-    $subject = $_SESSION['your-name']."さんからのお申し込み";
-    $content="お申し込み内容".
+    $subject = $_SESSION['your-name']."さんからお申し込みがありました";
+    $content = "お申し込み内容".
     "\n".
     "-----------------".
     "\n".
@@ -62,7 +63,30 @@ if (isset($_SESSION['your-submit'])) {
     "【過去の実績や経験年数】： ".$_SESSION['your-level'].
     "\n".
     "-----------------";
-    wp_mail($to, $subject, $content);
+    mb_send_mail($to, $subject, $content);
+    // 申込者へ送信ここから
+    $to = $_SESSION['your-email'];
+    $subject = "申し込みを受け付けました";
+    $content = "お申し込み内容".
+    "\n".
+    "-----------------".
+    "\n".
+    "【お名前】： ".$_SESSION['your-name'].
+    "\n".
+    "【性別】： ".$_SESSION['your-gender'].
+    "\n".
+    "【メールアドレス】： ".$_SESSION['your-email'].
+    "\n".
+    "【お住まいの地域】： ".$_SESSION['your-address'].
+    "\n".
+    "【参加人数】： ".$_SESSION['your-members'].
+    "\n".
+    "【電話番号】： ".$_SESSION['your-tel'].
+    "\n".
+    "【過去の実績や経験年数】： ".$_SESSION['your-level'].
+    "\n".
+    "-----------------";
+    mb_send_mail($to, $subject, $content);
     session_destroy();
 }
 ?>
