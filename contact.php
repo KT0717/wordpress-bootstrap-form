@@ -8,7 +8,8 @@ session_start();
     <div class="col mx-auto" style="max-width: 445px;">
       <div class="form-wrapper border rounded p-4 my-5">
         <h4 class="text-center font-weight-bold mb-4">お申し込みフォーム</h4>
-        <form id="form" action="<?php echo get_permalink( get_page_by_title("confirm")); ?>" method="post" name="your-form" class="rneeds-validation" novalidate>
+        <form id="form" action="<?php echo get_permalink( get_page_by_title("confirm")); ?>" method="post"
+          name="your-form" class="needs-validation" novalidate>
           <div class="px-1 mb-4">
             <label for="your-name" class="form-label d-flex align-items-center">
               <span>お名前</span><span class="small">（ニックネーム可）</span><span class="small text-danger">（必須）</span>
@@ -18,21 +19,19 @@ session_start();
               <span>この項目は入力が必須です</span>
             </div>
           </div>
-          <div class="px-1 mb-4">
+          <div id="gender-section" class="px-1 mb-4">
             <label class="form-label d-flex align-items-center">
               <span>性別</span><span class="small text-danger">（必須）</span>
             </label>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="your-gender" id="your-gender1" value="男" checked>
-              <label class="form-check-label" for="your-gender1">
-                <span>男</span>
-              </label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="your-gender" id="your-gender2" value="女">
-              <label class="form-check-label" for="your-gender2">
-                <span>女</span>
-              </label>
+            <div class="d-flex">
+              <div class="custom-control custom-radio mr-2">
+                <input type="radio" class="custom-control-input" id="your-gender1" name="your-gender" required>
+                <label class="custom-control-label" for="your-gender1"><span>男</span></label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="your-gender2" name="your-gender" required>
+                <label class="custom-control-label" for="your-gender2"><span>女</span></label>
+              </div>
             </div>
           </div>
           <div class="px-1 mb-4">
@@ -91,19 +90,51 @@ session_start();
 <?php get_footer(); ?>
 <script>
   (function () {
-    'use strict'
-    var forms = document.querySelectorAll('.needs-validation')
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
+    'use strict';
+    window.addEventListener('load', function () {
+      var forms = document.getElementsByClassName('needs-validation');
+
+      var genderSection = document.getElementById("gender-section");
+      var yourGender = document.getElementsByName("your-gender");
+
+      function createCustomInvalidFeedback() {
+        var el = document.createElement("div");
+        el.innerHTML = 'どちらかを選択してください';
+        el.classList.add('custom-invalid-feedback');
+        addCreateElement(el);
+      }
+
+      function addCreateElement(el) {
+        el = genderSection.appendChild(el);
+      }
+
+      var customInvalidFeedback = document.getElementsByClassName("custom-invalid-feedback");
+
+      yourGender.forEach(e => {
+        e.addEventListener("click", () => {
+          if (customInvalidFeedback[0] === undefined) {
+            return;
           }
-          form.classList.add('was-validated')
-        }, false)
+          customInvalidFeedback[0].remove();
+        })
       })
-  })()
+
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+          var checkYourGender = document.querySelector("input:checked[name=your-gender]");
+          console.log(customInvalidFeedback[0]);
+          if (checkYourGender === null && customInvalidFeedback[0] === undefined) {
+            createCustomInvalidFeedback();
+          }
+        }, false);
+      });
+    }, false);
+  })();
 </script>
 <style>
   textarea:-webkit-autofill,
@@ -139,5 +170,41 @@ session_start();
 
   .example-text {
     margin-left: .075rem;
+  }
+
+  .custom-control {
+    padding-left: 1.25rem !important;
+  }
+
+  .custom-control-label::before {
+    left: -1.25rem !important;
+  }
+
+  .custom-control-label::after {
+    left: -1.25rem !important;
+  }
+
+  .custom-invalid-feedback {
+    display: block !important;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+  }
+
+  .was-validated .custom-control-input:valid:checked~.custom-control-label::before,
+  .custom-control-input.is-valid:checked~.custom-control-label::before {
+    border-color: #007bff !important;
+    background-color: #007bff !important;
+  }
+
+  .was-validated .custom-control-input:valid~.custom-control-label::before,
+  .custom-control-input.is-valid~.custom-control-label::before {
+    border-color: inherit !important;
+  }
+
+  .was-validated .custom-control-input:valid~.custom-control-label,
+  .custom-control-input.is-valid~.custom-control-label {
+    color: inherit !important;
   }
 </style>

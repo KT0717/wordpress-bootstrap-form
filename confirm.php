@@ -8,7 +8,11 @@ if (isset($_POST['your-submit'])) {
     $_SESSION['your-email'] = $_POST['your-email'];
     $_SESSION['your-address'] = $_POST['your-address'];
     $_SESSION['your-members'] = $_POST['your-members'];
-    $_SESSION['your-tel'] = $_POST['your-tel'];
+    if ($_POST['your-tel'] != "") {
+        $_SESSION['your-tel'] = $_POST['your-tel'];
+    } else {
+        $_SESSION['your-tel'] = "記入なし";
+    }
     if ($_POST['your-level'] != "") {
         $_SESSION['your-level'] = $_POST['your-level'];
     } else {
