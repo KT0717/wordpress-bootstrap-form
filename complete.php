@@ -93,13 +93,15 @@ if (isset($_SESSION['your-submit'])) {
 <?php get_header(); ?>
 <div class="container">
   <div class="row justify-content-center">
+    <div class="col">
       <div class="mt-5">
         <p class="h4 mb-5">お申し込みを受付しました</p>
         <div class="text-left mx-auto mb-4">
           <p class="small text-secondary mb-2">自動返信にて登録内容が返信されます。</p>
           <p class="small text-secondary">メールが届かない場合は、迷惑メールフォルダやゴミ箱に自動的に振り分けられている可能性がありますので、一度ご確認頂きますようお願い致します。</p>
         </div>
-        <a href="<?php echo get_permalink(get_page_by_title('front-page')); ?>" class="btn btn-link btn-sm p-0">トップへ戻る</a>
+      </div>
+      <a href="<?php echo get_permalink(get_page_by_title('front-page')); ?>" class="btn btn-link btn-sm p-0">トップへ戻る</a>
     </div>
   </div>
 </div>
