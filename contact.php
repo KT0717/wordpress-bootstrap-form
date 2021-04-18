@@ -25,11 +25,11 @@ session_start();
             </label>
             <div class="d-flex">
               <div class="custom-control custom-radio mr-2">
-                <input type="radio" class="custom-control-input" id="your-gender1" name="your-gender" required>
+                <input type="radio" class="custom-control-input" id="your-gender1" name="your-gender" value="男" required>
                 <label class="custom-control-label" for="your-gender1"><span>男</span></label>
               </div>
               <div class="custom-control custom-radio">
-                <input type="radio" class="custom-control-input" id="your-gender2" name="your-gender" required>
+                <input type="radio" class="custom-control-input" id="your-gender2" name="your-gender" value="女" required>
                 <label class="custom-control-label" for="your-gender2"><span>女</span></label>
               </div>
             </div>
@@ -127,7 +127,6 @@ session_start();
           }
           form.classList.add('was-validated');
           var checkYourGender = document.querySelector("input:checked[name=your-gender]");
-          console.log(customInvalidFeedback[0]);
           if (checkYourGender === null && customInvalidFeedback[0] === undefined) {
             createCustomInvalidFeedback();
           }
