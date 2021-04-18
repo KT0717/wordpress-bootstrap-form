@@ -5,8 +5,8 @@ session_start();
 <?php get_header(); ?>
 <div class="container">
   <div class="row">
-    <div class="col mx-auto" style="max-width: 445px;">
-      <div class="form-wrapper border rounded p-4 my-5">
+    <div class="form-wrapper col mx-auto">
+      <div class="border rounded p-0 p-sm-4 my-5 border-cutstom-hidden">
         <h4 class="text-center font-weight-bold mb-4">お申し込みフォーム</h4>
         <form id="form" action="<?php echo get_permalink( get_page_by_title("confirm")); ?>" method="post"
           name="your-form" class="needs-validation" novalidate>

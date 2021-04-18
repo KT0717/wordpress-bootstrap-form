@@ -24,8 +24,8 @@ if (isset($_POST['your-submit'])) {
 <?php get_header(); ?>
 <div class="container">
   <div class="row">
-    <div class="col mx-auto" style="max-width: 445px;">
-      <div class="form-wrapper border rounded p-4 my-5">
+    <div class="form-wrapper col mx-auto">
+      <div class="border rounded p-0 p-sm-4 my-5 border-cutstom-hidden">
         <h4 class="text-center font-weight-bold mb-4">お申し込み内容</h4>
         <div class="px-1 mb-4">
           <p class="small text-secondary ml-1 mb-1">お名前</p>

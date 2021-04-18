@@ -94,3 +94,13 @@ label {
 .example-text {
   margin-left: .075rem;
 }
+
+.form-wrapper {
+  max-width: 445px;
+}
+
+@media(max-width:767px) {
+  .border-cutstom-hidden {
+    border: none !important;
+  }
+}
